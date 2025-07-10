@@ -45,7 +45,6 @@ def mandelbrot():
                 z = z**2 + c
     return img_array
 
-img = Image.new("RGB", (IMG_WIDTH, IMG_HEIGHT), color=(0, 0, 0))
 img = Image.fromarray(mandelbrot(), 'RGB')
 img.save("mandelbrot.png")
 
