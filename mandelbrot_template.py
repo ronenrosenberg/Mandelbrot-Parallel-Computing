@@ -24,8 +24,8 @@ def remap(x, domain, range):
 
 @njit
 def colorize(i):
-    gray = log10(i)/log10(MAX_ITERATIONS) * 255
-    return (gray, gray, gray)
+    #TODO: return a color value ex: (255, 255, 255) based on i
+    pass
 
 @njit(parallel=True)
 def mandelbrot():
@@ -34,18 +34,12 @@ def mandelbrot():
     #loop through each pixel (done in parallel using prange)
     for x in prange(IMG_WIDTH): 
         for y in range(IMG_HEIGHT):
-            #define c and z here
-            c = complex( 
-                remap(x, [0,IMG_WIDTH], [x_start,x_stop]), 
-                remap(y, [0,IMG_HEIGHT], [y_start,y_stop]) 
-            )
-            z = 0
+            #TODO: define c and z based on what pixel we're generating
 
             for i in range(MAX_ITERATIONS):
-                if abs(z) > 2:
-                    img_array[y, x] = colorize(i)
-                    break
-                z = z**2 + c
+                #TODO: if |z| > 2, pass how many iterations it took to colorize, assign the returned color to the pixel, and break
+                #else z=z^2+c
+                pass
     return img_array
 
 mandelbrot()
