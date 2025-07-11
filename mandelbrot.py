@@ -46,6 +46,7 @@ def mandelbrot():
                     img_array[y, x] = colorize(i)
                     break
                 z = z**2 + c
+    
     return img_array
 
 mandelbrot()

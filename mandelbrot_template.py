@@ -1,6 +1,5 @@
 from numba import prange, njit #parallelization
 from PIL import Image #image writing
-from time import perf_counter #for testing length of code execution
 from math import log10
 import numpy as np #arrays
 
@@ -24,7 +23,7 @@ def remap(x, domain, range):
 
 @njit
 def colorize(i):
-    #TODO: return a color value ex: (255, 255, 255) based on i
+    #TODO: return a color value, ex: (255, 255, 255), based on i
     pass
 
 @njit(parallel=True)
@@ -37,17 +36,11 @@ def mandelbrot():
             #TODO: define c and z based on what pixel we're generating
 
             for i in range(MAX_ITERATIONS):
-                #TODO: if |z| > 2, pass how many iterations it took to colorize, assign the returned color to the pixel, and break
-                #else z=z^2+c
+                #TODO: if |z| > 2, pass current i to colorize, assign the returned color to the pixel, and break
+                #else z=z^2+c (iterate function)
                 pass
+    
     return img_array
 
-mandelbrot()
-start_time = perf_counter()
 img = Image.fromarray(mandelbrot(), 'RGB')
-end_time = perf_counter()
-
-total_execution_time = end_time - start_time
-print(f"Execution time: {total_execution_time:.2f}")
-
 img.save("mandelbrot.png")
