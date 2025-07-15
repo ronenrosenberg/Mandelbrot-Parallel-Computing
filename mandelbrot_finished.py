@@ -35,9 +35,9 @@ def mandelbrot():
     for x in prange(IMG_WIDTH): 
         for y in range(IMG_HEIGHT):
             #define c and z here
-            c = complex( 
-                remap(x, [0,IMG_WIDTH], [x_start,x_stop]), 
-                remap(y, [0,IMG_HEIGHT], [y_start,y_stop]) 
+            c = complex(
+                remap(x, [0,IMG_WIDTH-1], [x_start,x_stop]), 
+                remap(y, [0,IMG_HEIGHT-1], [y_start,y_stop]) 
             )
             z = 0
 
